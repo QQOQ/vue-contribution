@@ -58,6 +58,11 @@ Vue.use(contribution)
           '2019-12-23':5
       	}
       }
+    },
+    methods: {
+      click(date){
+        console.log(date)
+      }
     }
   }
 </script>
