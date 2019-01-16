@@ -3,7 +3,7 @@
 > 基于Vue的类github contribution组件
 
 ## 截图
-<img src="https://github.com/QQOQ/vue-contribution/raw/master/public/img/test.png" alt="vue-contribution" style="max-width:750px;">
+<img src="https://github.com/QQOQ/vue-contribution/raw/master/public/img/test.png" alt="vue-contribution" width="750" style="max-width:750px;">
 
 ## 安装
 
