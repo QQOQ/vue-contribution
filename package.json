@@ -1,8 +1,8 @@
 {
   "name": "vue-contribution",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": false,
-  "main": "dist/contribution.js",
+  "main": "dist/vue-contribution.umd.min.js",
   "author": {
     "name": "老萨",
     "email": "sinaapp@qq.com",

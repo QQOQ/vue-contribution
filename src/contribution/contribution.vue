@@ -20,6 +20,7 @@
 
 <script>
 export default {
+	name: "contribution",
 	data() {
 		return {
 			mdata: []

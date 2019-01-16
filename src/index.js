@@ -2,23 +2,20 @@
 import contribution from './contribution'
 
 // 存储组件列表
-const components = {
+const components = [
   contribution
-}
+]
 
 // 定义 install 方法，接收 Vue 作为参数。如果使用 use 注册插件，则所有的组件都将被注册
-const install = function (Vue) {
-  // 判断是否可以安装
-  if (install.installed) return
-  // 遍历注册全局组件
-  Object.keys(components).forEach(key => {
-        Vue.component(key, components[key]);
-  });
+const install = function(Vue, opts = {}) {
+  components.map(component => {
+    Vue.component(component.name, component);
+  })
 }
 
-// 判断是否是直接引入文件
+/* 支持使用标签的方式引入 */
 if (typeof window !== 'undefined' && window.Vue) {
-  install(window.Vue)
+  install(window.Vue);
 }
 
 export default {
