@@ -3,7 +3,7 @@
 > 基于Vue的类github contribution组件
 
 ## 截图
-<img src="https://github.com/QQOQ/vue-contribution/raw/master/public/img/test.png" alt="vue-contribution" width="750" style="max-width:750px;">
+<img src="https://github.com/QQOQ/vue-contribution/raw/master/public/img/test.png" alt="vue-contribution" width="750">
 
 ## 安装
 
@@ -75,7 +75,7 @@ Vue.use(contribution)
 ## props属性
 通过以下属性来个性化你的contribution
 
-| 属性  | 说明  | 类型  | 默认值  | 是否必须  |
+| 属性  | 说明  | 类型  | 默认值  | 必须  |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
 | year  | 指定显示的年份  | Number  | 本年  | 否  |
 | fontSize  | 字体大小，单位为px(无需输入单位)  | Number  | 10  | 否  |
