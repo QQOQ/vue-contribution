@@ -23,7 +23,7 @@ export default {
 	name: "contribution",
 	data() {
 		return {
-			mdata: []
+			
 		}
 	},
 	props: {
@@ -82,7 +82,7 @@ export default {
 		monthText: {
 			type: [String, Array],
 			default: ()=>{
-				return ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'];
+				return 'zh-cn';
 			}
 		},
 		click: {
@@ -91,7 +91,7 @@ export default {
 		}
 	},
 	created() {
-		this.getData();
+		
 	},
 	computed: {
 		mW: function(){
@@ -108,16 +108,9 @@ export default {
 			}else{
 				return this.monthText;
 			}
-		}
-	},
-	watch:{
-		year(){
-			this.getData()
-		}
-	},
-	methods: {
-		getData(){
-			var date = {};
+		},
+		mdata: function(){
+			const date = {};
 			const isLeap = (0===this.year%4) && (0!==this.year%100) || (0===this.year%400);
 			// 如果为闰年，则2月有29日
 			const month2 = isLeap?29:28;
@@ -129,8 +122,10 @@ export default {
 				}
 			}
 			const newObj = Object.assign(date,this.data);
-			this.mdata = newObj;
-		},
+			return newObj;
+		}
+	},
+	methods: {
 		fill(v){
 			for (let i in this.conditions) {
 				if(this.conditions[i].condition == '>'){
