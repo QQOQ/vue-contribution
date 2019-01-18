@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="vue-contribution">
         <svg :width="mW" :height="mH">
             <text :style="{fontSize: fontSize + 'px'}" :fill="fontColor" :x="textX(i)" :y="textY(i)" v-for="(m, i) in month">{{m}}</text>
             <g v-for="(val, key, index) in mdata">
@@ -10,11 +10,13 @@
                     :x="rectX(index)"
                     :y="rectY(index)"
                     @click="click(key)"
+                    @mouseenter="mouseenter($event,key,val)"
+                    @mouseleave="mouseleave"
                 >
-                    <title>{{key}}({{val}})</title>
                 </rect>
             </g>
         </svg>
+        <div ref="tipText" v-if="tipText" :style="{left:tipX,top:tipY}" class="svg-tip"><i></i><div v-html="tipText"></div></div>
     </div>
 </template>
 
@@ -23,7 +25,9 @@ export default {
     name: "contribution",
     data() {
         return {
-            
+            tipText: null,
+            tipX: null,
+            tipY: null
         }
     },
     props: {
@@ -126,6 +130,24 @@ export default {
         }
     },
     methods: {
+    	mouseenter(e,key,val){
+            const t = val>0?val:'No';
+            this.tipText = t+' contributions on <span style="color:#aaa">'+key+'</span>';
+            this.$nextTick(function () {
+                const w = Number(this.$refs.tipText.offsetWidth);
+                const h = Number(this.$refs.tipText.offsetHeight);
+                
+                const x = Number(e.path[0].attributes.x.value);
+                const y = Number(e.path[0].attributes.y.value);
+                this.tipX = (x-w/2+3)+'px';
+                this.tipY = (y-h-6)+'px';
+            })
+                
+
+    	},
+        mouseleave(){
+            this.tipText = null;
+        },
         fill(v){
             for (let i in this.conditions) {
                 if(this.conditions[i].condition == '>'){
@@ -199,5 +221,27 @@ export default {
 <style scoped>
     rect {
         cursor: pointer;
+    }
+    .vue-contribution{
+        position: relative;
+    }
+    .svg-tip{
+        position: absolute;
+        padding: 5px 10px;
+        background-color: #000;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+    }
+    .svg-tip i{
+        position: absolute;
+        width:0;
+        height:0;
+        border-right:6px solid transparent;
+        border-left:6px solid transparent;
+        border-top:6px solid #000;
+        left: 50%;
+        bottom: -6px;
+        margin-left: -3px;
     }
 </style>
