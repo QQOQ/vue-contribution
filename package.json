@@ -1,8 +1,9 @@
 {
   "name": "vue-contribution",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "private": false,
   "main": "dist/vue-contribution.umd.min.js",
+  "homepage": "https://github.com/QQOQ/vue-contribution",
   "author": {
     "name": "老萨",
     "email": "sinaapp@qq.com",

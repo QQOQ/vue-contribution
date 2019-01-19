@@ -139,11 +139,9 @@ export default {
                 
                 const x = Number(e.path[0].attributes.x.value);
                 const y = Number(e.path[0].attributes.y.value);
-                this.tipX = (x-w/2+3)+'px';
+                this.tipX = (x-((w-this.rectWidth)/2)-3)+'px';
                 this.tipY = (y-h-6)+'px';
             })
-                
-
     	},
         mouseleave(){
             this.tipText = null;
