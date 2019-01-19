@@ -1,6 +1,6 @@
 {
   "name": "vue-contribution",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "private": false,
   "main": "dist/vue-contribution.umd.min.js",
   "homepage": "https://github.com/QQOQ/vue-contribution",
